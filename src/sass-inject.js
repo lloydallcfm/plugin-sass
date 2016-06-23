@@ -10,7 +10,7 @@ import path from 'path';
 import postcss from 'postcss';
 import reqwest from 'reqwest';
 import url from 'url';
-
+//import log from 'log';
 import resolvePath from './resolve-path';
 
 const importSass = new Promise(async resolve => {
@@ -34,11 +34,11 @@ async function sassImporter(request, done) {
     const partialPath = resolved.replace(/\/([^/]*)$/, '/_$1');
     const resp = await reqwest(partialPath);
     // In Cordova Apps the response is the raw XMLHttpRequest
-    content = resp.responseText ? resp.responseText : resp;
+    content = (resp.responseText ? resp.responseText : resp).replace(/\/\/\/.*\n/g,'');
   } catch (e) {
     try {
       const resp = await reqwest(resolved);
-      content = resp.responseText ? resp.responseText : resp;
+      content = (resp.responseText ? resp.responseText : resp).replace(/\/\/\/.*\n/g,'');
     } catch (er) {
       done();
       return;

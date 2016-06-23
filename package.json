@@ -49,7 +49,9 @@
     "rimraf": "^2.5.2",
     "systemjs": "^0.19.27"
   },
-  "dependencies": {},
+  "dependencies": {
+    "log": "^1.4.0"
+  },
   "jspm": {
     "directories": {
       "baseURL": "src",
