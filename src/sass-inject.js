@@ -38,13 +38,13 @@ async function sassImporter(request, done) {
   } catch (e) {
     try {
       const resp = await reqwest(resolved);
-      logger.log('warn', 'logger');
       content = (resp.responseText ? resp.responseText : resp).replace(/\/\/\/.*\n/g, '');
     } catch (er) {
       done();
       return;
     }
   }
+  logger.log('warn', content);
   done({ content, path: resolved });
 }
 
