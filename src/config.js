@@ -27,7 +27,6 @@ System.config({
     "core-js": "npm:core-js@1.2.0",
     "fs": "github:jspm/nodelibs-fs@0.1.2",
     "lodash": "npm:lodash@4.6.1",
-    "log": "npm:log@1.4.0",
     "path": "github:jspm/nodelibs-path@0.1.0",
     "postcss": "npm:postcss@5.0.18",
     "reqwest": "github:ded/reqwest@2.0.5",
@@ -257,12 +256,6 @@ System.config({
     "npm:lodash@4.6.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:log@1.4.0": {
-      "events": "github:jspm/nodelibs-events@0.1.1",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:miller-rabin@4.0.0": {
       "bn.js": "npm:bn.js@4.10.0",

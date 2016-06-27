@@ -10,10 +10,35 @@ import path from 'path';
 import postcss from 'postcss';
 import reqwest from 'reqwest';
 import url from 'url';
-import log from 'log';
 import resolvePath from './resolve-path';
 
-const logger = new log();
+const log = function log(level, msg, _isTerminal) {
+
+    const prefix = '[plugin-scss]';
+    const isTerminal = _isTerminal || false;
+    if (!isTerminal) {
+        console.log(prefix, msg);
+    } else {
+        // set the color of message based on level
+        let msgColor = '\x1b[0m'; // 0 = terminal
+        switch (level) {
+            case 'info':
+                msgColor = '\x1b[36m';
+                break;
+            case 'warn':
+                msgColor = '\x1b[33m';
+                break;
+            case 'error':
+                msgColor = '\x1b[31m';
+                break;
+            default:
+                msgColor = '\x1b[36m';
+                break;
+        }
+
+        console.log('\x1b[36m', prefix, msgColor, msg, '\x1b[0m');
+    }
+};
 
 const importSass = new Promise(async resolve => {
   if (Modernizr.webworkers) {
@@ -46,7 +71,7 @@ async function sassImporter(request, done) {
       return;
     }
   }
-  logger.debug('warn', content);
+  log('warn', 'hi');
   done({ content, path: resolved });
 }
 

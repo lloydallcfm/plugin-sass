@@ -59,7 +59,6 @@
       "autoprefixer": "npm:autoprefixer@^6.3.3",
       "fs": "github:jspm/nodelibs-fs@^0.1.2",
       "lodash": "npm:lodash@^4.6.1",
-      "log": "npm:log@^1.4.0",
       "path": "github:jspm/nodelibs-path@^0.1.0",
       "postcss": "npm:postcss@^5.0.18",
       "reqwest": "github:ded/reqwest@^2.0.5",
