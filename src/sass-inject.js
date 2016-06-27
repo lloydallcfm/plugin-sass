@@ -10,7 +10,7 @@ import path from 'path';
 import postcss from 'postcss';
 import reqwest from 'reqwest';
 import url from 'url';
-//import log from 'log';
+import log from 'log';
 import resolvePath from './resolve-path';
 
 const importSass = new Promise(async resolve => {
