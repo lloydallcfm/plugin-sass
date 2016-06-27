@@ -13,31 +13,30 @@ import url from 'url';
 import resolvePath from './resolve-path';
 
 const log = function log(level, msg, _isTerminal) {
-
-    const prefix = '[plugin-scss]';
-    const isTerminal = _isTerminal || false;
-    if (!isTerminal) {
-        console.log(prefix, msg);
-    } else {
-        // set the color of message based on level
-        let msgColor = '\x1b[0m'; // 0 = terminal
-        switch (level) {
-            case 'info':
-                msgColor = '\x1b[36m';
-                break;
-            case 'warn':
-                msgColor = '\x1b[33m';
-                break;
-            case 'error':
-                msgColor = '\x1b[31m';
-                break;
-            default:
-                msgColor = '\x1b[36m';
-                break;
-        }
-
-        console.log('\x1b[36m', prefix, msgColor, msg, '\x1b[0m');
+  const prefix = '[plugin-scss]';
+  const isTerminal = _isTerminal || false;
+  if (!isTerminal) {
+    console.log(prefix, msg);
+  } else {
+    // set the color of message based on level
+    let msgColor = '\x1b[0m'; // 0 = terminal
+    switch (level) {
+      case 'info':
+        msgColor = '\x1b[36m';
+        break;
+      case 'warn':
+        msgColor = '\x1b[33m';
+        break;
+      case 'error':
+        msgColor = '\x1b[31m';
+        break;
+      default:
+        msgColor = '\x1b[36m';
+        break;
     }
+
+    console.log('\x1b[36m', prefix, msgColor, msg, '\x1b[0m');
+  }
 };
 
 const importSass = new Promise(async resolve => {
@@ -84,7 +83,7 @@ async function compile(scss, styleUrl) {
   const content = scss.content;
   const responseText = content.responseText;
   if (isString(content) && isEmpty(content) ||
-      !isUndefined(responseText) && isEmpty(responseText)) {
+  !isUndefined(responseText) && isEmpty(responseText)) {
     return '';
   }
   const sass = await importSass;
@@ -111,7 +110,7 @@ async function compile(scss, styleUrl) {
     throw formatted;
   }
   if (!isUndefined(System.sassPluginOptions) &&
-      System.sassPluginOptions.autoprefixer) {
+  System.sassPluginOptions.autoprefixer) {
     const { css } = await postcss([autoprefixer]).process(text);
     inject(css);
   } else {
@@ -130,7 +129,7 @@ export default async function sassInject(load) {
   const indentedSyntax = load.address.endsWith('.sass');
   let options = {};
   if (!isUndefined(System.sassPluginOptions) &&
-      !isUndefined(System.sassPluginOptions.sassOptions)) {
+  !isUndefined(System.sassPluginOptions.sassOptions)) {
     options = System.sassPluginOptions.sassOptions;
   }
   options.indentedSyntax = indentedSyntax;
