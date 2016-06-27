@@ -10,7 +10,7 @@ import path from 'path';
 import postcss from 'postcss';
 import reqwest from 'reqwest';
 import url from 'url';
-import log from 'log';
+import logger from 'log';
 import resolvePath from './resolve-path';
 
 const importSass = new Promise(async resolve => {
@@ -38,6 +38,7 @@ async function sassImporter(request, done) {
   } catch (e) {
     try {
       const resp = await reqwest(resolved);
+      logger.log('warn', 'logger');
       content = (resp.responseText ? resp.responseText : resp).replace(/\/\/\/.*\n/g, '');
     } catch (er) {
       done();
