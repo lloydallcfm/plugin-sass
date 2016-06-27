@@ -62,7 +62,7 @@
       "path": "github:jspm/nodelibs-path@^0.1.0",
       "postcss": "npm:postcss@^5.0.18",
       "reqwest": "github:ded/reqwest@^2.0.5",
-      "sass.js": "npm:sass.js@^0.9.6",
+      "sass.js": "npm:sass.js@0.9.10",
       "url": "github:jspm/nodelibs-url@^0.1.0"
     },
     "devDependencies": {
