@@ -49,9 +49,7 @@
     "rimraf": "^2.5.2",
     "systemjs": "^0.19.27"
   },
-  "dependencies": {
-    "log": "^1.4.0"
-  },
+  "dependencies": {},
   "jspm": {
     "directories": {
       "baseURL": "src",
@@ -71,7 +69,8 @@
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "bootstrap": "github:twbs/bootstrap-sass@^3.3.6",
-      "core-js": "npm:core-js@^1.1.4"
+      "core-js": "npm:core-js@^1.1.4",
+      "log": "npm:log@^1.4.0"
     }
   }
 }
