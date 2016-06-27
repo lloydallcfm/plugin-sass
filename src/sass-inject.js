@@ -44,7 +44,7 @@ async function sassImporter(request, done) {
       return;
     }
   }
-  logger.log('warn', content);
+  logger('warn', content);
   done({ content, path: resolved });
 }
 
